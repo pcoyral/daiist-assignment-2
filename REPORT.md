@@ -341,9 +341,39 @@ near-identical consecutive frames, that is a few weeks of pilot data.
 
 ## Generative AI use disclosure
 
-I used Claude Code (Anthropic) for this assignment. I chose the Roboflow
-dataset, and chose the scoreboard-reading framing from options it presented.
-Claude Code wrote the code (`train.py`, `costing.py`, `settings.py`,
-`app.py`), ran the training and evaluation, proposed the cost figures, the
-label audit and the threshold criterion, and drafted this report from the
-pipeline's outputs.
+I used **Claude Code** (Anthropic's coding agent, model Claude Opus) throughout
+this assignment. It worked directly in my repository, running commands and
+editing files with my permission.
+
+**What I did**
+- Chose the dataset: the Roboflow Universe basketball project.
+- Chose the business framing: reading the scoreboard for a live betting data
+  feed. Claude Code warned that the dataset was small and had no obvious
+  costly decision attached, and offered three options: keep the scoreboard
+  classes, use players and referees, or switch datasets. I picked the first.
+- Decided that Claude Code should draft the report for me to edit.
+- Supplied my Roboflow API key. It is stored only in the git-ignored `.env`.
+
+**What Claude Code did**
+- **Code.** Wrote all of it: `train.py` (download, dataset statistics,
+  finetuning, baselines, saved predictions, cost sweep), `costing.py`
+  (matching, the three-way decision, sweeps, bootstrap, confusion matrix),
+  `settings.py` and the Gradio dashboard in `app.py`.
+- **Running it.** Ran training on my laptop, including the choice to move from
+  `yolo11s` to `yolo11n` when the larger model ran out of memory. It also ran
+  `check.py` and tested the dashboard in a browser.
+- **Analysis.** Proposed the analytical choices in this report:
+  - the euro figures for each kind of error and the base rate;
+  - only sending readings to an operator when they would change the
+    published score;
+  - choosing thresholds on validation and checking them on test;
+  - setting the false-positive rate at its 95% upper bound;
+  - the staffing figures.
+- **Label audit.** Found the five frames labelled "no scoreboard" that show
+  one, by viewing every such frame. It then proposed reporting costs both with
+  and without them rather than relabelling.
+- **The report.** Wrote this text from the pipeline's outputs (`artifacts/metrics.json`).
+
+All figures in the report come from the pipeline's own output, not from the
+model's general knowledge. The euro costs are assumptions, explained in the
+cost section, not sourced market data.

@@ -1,10 +1,5 @@
 # Assignment 2 Report
 
-> **DRAFT. Every decision below is a proposal to rewrite in your own words.**
-> The brief requires the framing, costs, thresholds and conclusions to be
-> yours. Every figure comes from `artifacts/metrics.json`, which
-> `main.py train` writes. Delete this box when the text is yours.
-
 - **Name**: Paul Coyral
 - **Student ID**:
 - **Email**: pcoyral.ieu2022@student.ie.edu
@@ -346,9 +341,9 @@ near-identical consecutive frames, that is a few weeks of pilot data.
 
 ## Generative AI use disclosure
 
-I used Claude Code (Anthropic) for this assignment. It wrote the code
-(`train.py`, `costing.py`, `settings.py`, `app.py`) and produced a first draft
-of this report from the pipeline's outputs. I chose the dataset and the
-scoreboard framing from options it presented, then reviewed, rewrote and
-decided [**edit to describe what you actually changed, and which cost
-figures, thresholds and the label audit you checked or changed yourself**].
+I used Claude Code (Anthropic) for this assignment. I chose the Roboflow
+dataset, and chose the scoreboard-reading framing from options it presented.
+Claude Code wrote the code (`train.py`, `costing.py`, `settings.py`,
+`app.py`), ran the training and evaluation, proposed the cost figures, the
+label audit and the threshold criterion, and drafted this report from the
+pipeline's outputs.
